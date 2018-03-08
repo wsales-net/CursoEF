@@ -1,4 +1,5 @@
-﻿using CursoEF.Entidades;
+﻿using CursoEF.DAO;
+using CursoEF.Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,19 +12,16 @@ namespace CursoEF
     {
         static void Main(string[] args)
         {
-            EntidadesContext contexto = new EntidadesContext();
-            contexto.Database.CreateIfNotExists();
+            EntidadesContext context = new EntidadesContext();
+            Usuario usuario = new Usuario();
+            usuario.Nome = "Guilherme";
+            usuario.Senha = "456";
 
-            Usuario usuario = new Usuario()
-            {
-                Nome = "Well",
-                Senha = "123"
-            };
-            contexto.Usuario.Add(usuario);
+            context.Usuario.Add(usuario);
+            context.SaveChanges();
 
-            contexto.SaveChanges();
-
-            contexto.Dispose();
+            Console.WriteLine("Pressione ENTER para sair...");
+            Console.Read();
         }
     }
 }
