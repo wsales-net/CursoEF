@@ -8,17 +8,19 @@ using System.Threading.Tasks;
 
 namespace CursoEF
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
             EntidadesContext context = new EntidadesContext();
-            Usuario usuario = new Usuario();
-            usuario.Nome = "Guilherme";
-            usuario.Senha = "456";
 
-            context.Usuario.Add(usuario);
-            context.SaveChanges();
+            Categoria categoria = context.Categoria.Find(1);
+            foreach (var produto in categoria.Produtos)
+            {
+                Console.WriteLine(produto.Nome);
+            }
+
+            context.Dispose();
 
             Console.WriteLine("Pressione ENTER para sair...");
             Console.Read();

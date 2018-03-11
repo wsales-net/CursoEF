@@ -66,12 +66,23 @@
   <ItemGroup>
     <Compile Include="DAO\UsuariosDAO.cs" />
     <Compile Include="EntidadesContext.cs" />
+    <Compile Include="Entidades\Categoria.cs" />
+    <Compile Include="Entidades\Produto.cs" />
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="LojaDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LojaDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803060242041_InitialCreate.cs" />
+    <Compile Include="Migrations\201803060242041_InitialCreate.Designer.cs">
+      <DependentUpon>201803060242041_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201803111714162_CriaCategoria.cs" />
+    <Compile Include="Migrations\201803111714162_CriaCategoria.Designer.cs">
+      <DependentUpon>201803111714162_CriaCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -110,6 +121,14 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201803060242041_InitialCreate.resx">
+      <DependentUpon>201803060242041_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803111714162_CriaCategoria.resx">
+      <DependentUpon>201803111714162_CriaCategoria.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
