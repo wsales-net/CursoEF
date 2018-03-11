@@ -14,15 +14,16 @@ namespace CursoEF
         {
             EntidadesContext context = new EntidadesContext();
 
-            Categoria categoria = context.Categoria.Find(1);
-            foreach (var produto in categoria.Produtos)
-            {
-                Console.WriteLine(produto.Nome);
-            }
+            var busca = from c in context.Categoria select new ProdutosPorCategoria(){ Categoria = c, NumeroProdutos = c.Produtos.Count };
 
+            IList<ProdutosPorCategoria> resultado = busca.ToList();
+            foreach (var r in resultado)
+            {
+                Console.WriteLine(r.Categoria.Nome + " - " + r.NumeroProdutos);
+            }
             context.Dispose();
 
-            Console.WriteLine("Pressione ENTER para sair...");
+            Console.WriteLine("\nPressione ENTER para sair...");
             Console.Read();
         }
     }
