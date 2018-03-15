@@ -12,9 +12,14 @@ namespace CursoEF
 
         public DbSet<Categoria> Categoria { get; set; }
 
+        /// <summary>
+        /// Configura o relacionamento das entidades do entity framework. Onde a categoria tem muitos produtos (HasMany) ou uma lista de produtos, e onde o produto
+        /// tem opcionalmente uma categoria.
+        /// </summary>
+        /// <param name="modelBuilder"></param>
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            EntityTypeConfiguration<Categoria> configuration = modelBuilder.Entity<Categoria>();
+            var configuration = modelBuilder.Entity<Categoria>();
             configuration.HasMany(categoria => categoria.Produtos).WithOptional(produto => produto.Categoria);
         }
     }
