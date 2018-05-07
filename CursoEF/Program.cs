@@ -13,18 +13,20 @@ namespace CursoEF
         static void Main(string[] args)
         {
             EntidadesContext context = new EntidadesContext();
+            Produto p1 = context.Produto.Find(1);
+            Produto p2 = context.Produto.Find(2);
 
-            //trazer os produtos da categoria específica
-            var busca = from c in context.Categoria.Include("Produtos") select c;
+            Usuario cliente = context.Usuario.Find(3);
 
-            IList<Categoria> resultado = busca.ToList();
+            Venda venda = new Venda();
+            venda.Cliente = cliente;
+            venda.Produtos.Add(p1);
+            venda.Produtos.Add(p2);
 
-            Console.WriteLine(busca.ToString());
+            context.Vendas.Add(venda);
 
-            foreach (var c in resultado)
-            {
-                Console.WriteLine(c.Nome + " - " + c.Produtos.Count);
-            }
+            context.SaveChanges();
+
             context.Dispose();
 
             Console.WriteLine("\nPressione ENTER para sair...");

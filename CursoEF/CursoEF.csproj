@@ -70,6 +70,7 @@
     <Compile Include="Entidades\Produto.cs" />
     <Compile Include="Entidades\ProdutosPorCategoria.cs" />
     <Compile Include="Entidades\Usuario.cs" />
+    <Compile Include="Entidades\Venda.cs" />
     <Compile Include="LojaDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -82,6 +83,10 @@
     <Compile Include="Migrations\201803111714162_CriaCategoria.cs" />
     <Compile Include="Migrations\201803111714162_CriaCategoria.Designer.cs">
       <DependentUpon>201803111714162_CriaCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201805070203417_CriaVenda.cs" />
+    <Compile Include="Migrations\201805070203417_CriaVenda.Designer.cs">
+      <DependentUpon>201805070203417_CriaVenda.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Program.cs" />
@@ -129,6 +134,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201803111714162_CriaCategoria.resx">
       <DependentUpon>201803111714162_CriaCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805070203417_CriaVenda.resx">
+      <DependentUpon>201805070203417_CriaVenda.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
