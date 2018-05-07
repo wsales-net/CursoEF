@@ -14,8 +14,7 @@ namespace CursoEF
         public DbSet<Venda> Vendas { get; set; }
 
         /// <summary>
-        /// Configura o relacionamento das entidades do entity framework. Onde a categoria tem muitos produtos (HasMany) ou uma lista de produtos, e onde o produto
-        /// tem opcionalmente uma categoria.
+        /// Configura o relacionamento das entidades do entity framework.
         /// </summary>
         /// <param name="modelBuilder"></param>
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -30,6 +29,10 @@ namespace CursoEF
                 relacionamento.MapLeftKey("VendaId");
                 relacionamento.MapRightKey("ProdutoId");
             });
+
+            modelBuilder.Entity<PessoaFisica>().ToTable("PessoaFisica");
+            modelBuilder.Entity<PessoaFisica>().ToTable("PessoaJuridica");
+
         }
     }
 }

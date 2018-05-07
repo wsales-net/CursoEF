@@ -13,17 +13,16 @@ namespace CursoEF
         static void Main(string[] args)
         {
             EntidadesContext context = new EntidadesContext();
-            Produto p1 = context.Produto.Find(1);
-            Produto p2 = context.Produto.Find(2);
+            PessoaFisica well = new PessoaFisica();
+            well.Nome = "Well";
+            well.CPF = "123";
 
-            Usuario cliente = context.Usuario.Find(3);
+            PessoaJuridica alura = new PessoaJuridica();
+            alura.Nome = "Alura";
+            alura.CNPJ = "2345";
 
-            Venda venda = new Venda();
-            venda.Cliente = cliente;
-            venda.Produtos.Add(p1);
-            venda.Produtos.Add(p2);
-
-            context.Vendas.Add(venda);
+            context.Usuario.Add(well);
+            context.Usuario.Add(alura);
 
             context.SaveChanges();
 
